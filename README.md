@@ -81,7 +81,9 @@
  ## Add, Edit, Delete, Get Items
     Using this endpoint you can Add items, Change an existing item, Delete an item and show your item list.
     
-    ### Request: (Adding a new item)
+    ADD NEW ITEMS:
+    
+    Request: (Adding a new item)
     POST http://0.0.0.0:5000/items
     {
       "name": "Pokeball",
@@ -90,13 +92,14 @@
       "access-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lIn0.PVpC0ZYLyPhvEjFGdNqWd2TTTsxs7JxNprOduJkF11I"
     }
     
-    ### Response:
+    Response:
     {
       "msg": "Item has been added successfuly.",
       "status": 200
     }
     
-    #### Possible Status Codes and Messages
+    
+    Possible Status Codes and Messages
     {"status": 401, "msg": "Token is missing."}
     {"status": 403, "msg": "Invalid Token."}
     {"status": 412, "msg": "Item name is missing."}
@@ -107,10 +110,14 @@
     
     
     
-    ### Request: (Displaying your items)
+    
+    
+    GET ITEMS:
+    
+    Request: 
     Get http://0.0.0.0:5000/items?access-token=<Your access token>
     
-    ### Response:
+    Response:
     {
       "currentUser": "username",
       "items": [
@@ -124,7 +131,18 @@
       "status": 200
     }
     
-    ### Request: (Changing item values)
+    
+    Possible Status Codes and Messages
+    {"status": 401, "msg": "Token is missing."}
+    {"status": 403, "msg": "Invalid Token."}
+    
+    
+    
+    
+    
+    UPDATE ITEMS:
+    
+    Request:
       You have used 10 of your pokeballs and you were not able to catch anything.
       Now you want to update both your pokeball count and description.
       
@@ -141,14 +159,25 @@
       "count" -> This is optinal. If not sent, the count wont be updated.
       "description" -> This is optional, if not sent, the description wont be updated.
       
-    ### Response
+    Response
     {
       "msg": "Item has been updated successfuly.",
       "status": 200
     }
     
     
-    ### Request: (Delete item)
+    Possible Status Codes and Messages
+    {"status": 401, "msg": "Token is missing."}
+    {"status": 403, "msg": "Invalid Token."}
+    {"status": 412, "msg": "Item name is missing."}
+    {"status": 412, "msg": "You should send at least one field to update (new-name, count or description)."}
+    {"status": 412, "msg": "Item count has to be a number."}
+    {"status": 422, "msg": "Item doest not exist on the list. If you want to add the item, send a POST request."}
+    
+    
+    DELETE ITEMS:
+    
+    Request: (Delete item)
     DELETE http://0.0.0.0:5000/items
     {
       "name": "Pokeball",
@@ -160,3 +189,9 @@
       "msg": "Item has been deleted successfuly.",
       "status": 200
     }
+    
+    Possible Status Codes and Messages
+    {"status": 401, "msg": "Token is missing."}
+    {"status": 403, "msg": "Invalid Token."}
+    {"status": 412, "msg": "Item name is missing."}
+    {"status": 422, "msg": "Item doest not exist on the list. If you want to add the item, send a POST request."}
