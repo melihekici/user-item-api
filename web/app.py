@@ -364,7 +364,7 @@ class Items(Resource):
                 int(postedData['count'])
             except: # If it is not convertable to integer
                 return jsonify({
-                    "status": 704,
+                    "status": 412,
                     "msg": "Item count has to be a number."
                 })
         
