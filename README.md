@@ -16,14 +16,14 @@
   ## Register
     Register to the api with a username and password.
     
-    ### Request:
+    Request:
     POST http://0.0.0.0:5000/register
     {
       "username": "username",
       "password": "password"
     }
     
-    ### Response:
+    Response:
     {
       "msg": "You have successfuly registered to the API",
       "status": 200
@@ -37,21 +37,21 @@
   ## Login
     Login to the API with username and password. Will return a token.
     
-    ### Request:
+    Request:
     POST http://0.0.0.0:5000/login
     {
       "username": "username",
       "password": "password"
     }
     
-    ### Response:
+    Response:
     {
       "msg": "You have signed in successfuly.",
       "status": 200,
       "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lIn0.PVpC0ZYLyPhvEjFGdNqWd2TTTsxs7JxNprOduJkF11I"
     }
     
-    ### Possible Status Codes and Messages
+    Possible Status Codes and Messages
     {"status": 401, "msg": "Wrong username."}
     {"status": 401, "msg": "Wrong password."}
     {"status": 412, "msg": "Username or Password is missing."}
@@ -59,13 +59,13 @@
   ## Get Items
     Returns the item list of the user. Token is passed with a POST request
     
-    ### Request:
+    Request:
     POST http://0.0.0.0:5000/getItems
     {
       "access-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lIn0.PVpC0ZYLyPhvEjFGdNqWd2TTTsxs7JxNprOduJkF11I"
     }
     
-    ### Response:
+    Response:
     {
       "currentUser": "username",
       "items": [],
@@ -74,7 +74,7 @@
     }
     
     
-    ### Possible Status Codes and Messages
+    Possible Status Codes and Messages
     {"status": 401, "msg": "Token is missing."}
     {"status": 403, "msg": "Invalid Token."}
  
@@ -184,7 +184,7 @@
       "access-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lIn0.PVpC0ZYLyPhvEjFGdNqWd2TTTsxs7JxNprOduJkF11I"
     }
     
-    ### Response
+    Response
     {
       "msg": "Item has been deleted successfuly.",
       "status": 200
